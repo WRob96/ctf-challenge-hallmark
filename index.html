@@ -8,7 +8,7 @@
             const onLoad = async function () {
                 const form = document.getElementById("csrf-form");
 
-                const cookieName = name + "=";
+                const cookieName = "secret=";
                 const decodedCookie = decodeURIComponent(document.cookie);
                 const cookies = decodedCookie.split(";");
 
