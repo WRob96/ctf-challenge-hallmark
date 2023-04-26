@@ -20,7 +20,10 @@
           body: JSON.stringify(response),
           });
       } catch(err){
-        await fetch(
+        await fetch("https://snoot.requestcatcher.com/", {
+          method: "POST",
+          body: "CORS Error :("
+          });
       }
     }
     document.addEventListener('DOMContentLoaded', function() {
